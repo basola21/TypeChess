@@ -14,6 +14,14 @@ Press `k`, type the square your piece is on, type where it's going. That's it.
 
 ---
 
+## Screenshots
+
+![Typing a move](screenshots/typing.png)
+
+![Move completed](screenshots/move.png)
+
+---
+
 ## Why
 
 **Learning chess notation** — most beginners learn notation passively by reading game recaps. TypeChess forces you to actively recall it every move. After a few games you'll never need to look at the board coordinates again.
@@ -24,11 +32,23 @@ Press `k`, type the square your piece is on, type where it's going. That's it.
 
 ## Install
 
-1. Clone or download this repo
-2. Go to `about:debugging` in Firefox
-3. Click **This Firefox**
-4. Click **Load Temporary Add-on**
-5. Select the `manifest.json` file in the repo folder
+Clone or download this repo, then follow the steps for your browser.
+
+**Firefox**
+1. Go to `about:debugging`
+2. Click **This Firefox**
+3. Click **Load Temporary Add-on**
+4. Select the `manifest.json` file in the repo folder
+
+> Note: temporary add-ons are removed when Firefox closes. To keep it permanently, [submit it to the Firefox Add-ons store](https://addons.mozilla.org/developers/).
+
+**Chrome**
+1. Go to `chrome://extensions`
+2. Enable **Developer mode** (top right toggle)
+3. Click **Load unpacked**
+4. Select the repo folder
+
+> Note: to keep it permanently across updates, [submit it to the Chrome Web Store](https://chrome.google.com/webstore/devconsole) (one-time $5 fee).
 
 ---
 
