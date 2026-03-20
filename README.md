@@ -1,6 +1,8 @@
 # TypeChess
 
-A Chrome extension for chess.com that lets you make moves by typing chess notation instead of clicking.
+<img src="icons/128.png" width="64" alt="TypeChess icon"/>
+
+A Firefox extension for chess.com that lets you make moves by typing chess notation instead of clicking.
 
 ```
 k  →  e2  →  e4
@@ -21,9 +23,10 @@ Press `k`, type the square your piece is on, type where it's going. That's it.
 ## Install
 
 1. Clone or download this repo
-2. Go to `chrome://extensions`
-3. Enable **Developer mode** (top right)
-4. Click **Load unpacked** and select the repo folder
+2. Go to `about:debugging` in Firefox
+3. Click **This Firefox**
+4. Click **Load Temporary Add-on**
+5. Select the `manifest.json` file in the repo folder
 
 ---
 
