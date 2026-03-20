@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Vim Chess Controller",
+  "version": "1.0",
+  "description": "Control chess.com with vim bindings",
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.chess.com/*"],
+      "js": ["board.js", "status.js", "input.js"]
+    }
+  ]
+}
