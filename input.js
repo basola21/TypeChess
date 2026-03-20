@@ -1,16 +1,18 @@
 // Flow: k → source square (e.g. e2) → dest square (e.g. e4)
-// Escape resets at any point
+// Escape resets at any point, Backspace deletes last char
 
 const FILES = new Set("abcdefgh".split(""))
 const RANKS = new Set("12345678".split(""))
 
 let mode = "idle"
 let buffer = ""
+let srcSquare = ""
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     mode = "idle"
     buffer = ""
+    srcSquare = ""
     setStatus("")
     return
   }
@@ -27,16 +29,33 @@ document.addEventListener("keydown", (e) => {
 
   e.stopPropagation()
 
+  if (e.key === "Backspace") {
+    if (buffer.length === 1) {
+      buffer = ""
+      setStatus(mode === "src" ? "move: _" : `move: ${srcSquare}  →  _`)
+    } else if (mode === "dst") {
+      mode = "src"
+      buffer = ""
+      srcSquare = ""
+      setStatus("move: _")
+    } else {
+      mode = "idle"
+      buffer = ""
+      setStatus("")
+    }
+    return
+  }
+
   if (mode === "src") {
     if (buffer === "" && FILES.has(e.key)) {
       buffer = e.key
       setStatus(`move: ${buffer}_  →  ?`)
     } else if (buffer.length === 1 && RANKS.has(e.key)) {
-      const src = buffer + e.key
+      srcSquare = buffer + e.key
       buffer = ""
-      clickSquare(src)
+      clickSquare(srcSquare)
       mode = "dst"
-      setStatus(`move: ${src}  →  _`)
+      setStatus(`move: ${srcSquare}  →  _`)
     }
     return
   }
@@ -44,12 +63,13 @@ document.addEventListener("keydown", (e) => {
   if (mode === "dst") {
     if (buffer === "" && FILES.has(e.key)) {
       buffer = e.key
-      setStatus(`move: ... →  ${buffer}_`)
+      setStatus(`move: ${srcSquare}  →  ${buffer}_`)
     } else if (buffer.length === 1 && RANKS.has(e.key)) {
       const dst = buffer + e.key
       clickSquare(dst)
       mode = "idle"
       buffer = ""
+      srcSquare = ""
       setStatus("")
     }
   }
