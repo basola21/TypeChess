@@ -1,8 +1,10 @@
-# TypeChess
+<div align="center">
+  <img src="icons/128.png" width="96" alt="TypeChess icon"/>
+  <h1>TypeChess</h1>
+  <p>A browser extension for chess.com — play by typing moves, no mouse needed</p>
+</div>
 
-<img src="icons/128.png" width="64" alt="TypeChess icon"/>
-
-A Firefox extension for chess.com that lets you make moves by typing chess notation instead of clicking.
+---
 
 ```
 k  →  e2  →  e4
